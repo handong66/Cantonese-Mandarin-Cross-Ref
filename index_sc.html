@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>粤普对应 (粤拼版)</title>
+    <link rel="stylesheet" href="styles_sc.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>中台港常用字粤普声韵调交互对照表（粤拼版）</h1>
+            <div class="header-controls">
+                <button id="usage-btn" class="usage-btn">使用说明</button>
+                <div class="lang-switch">
+                    <select id="lang-select" aria-label="语言切换">
+                        <option value="tc">繁体中文</option>
+                        <option value="sc">简体中文</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+        <div class="main-content">
+            <nav class="sidebar">
+                <div class="direction-switch">
+                    <select id="direction-select" onchange="switchDirection(this.value)">
+                        <option value="m2c">普通话 查 粤语</option>
+                        <option value="c2m">粤语 查 普通话</option>
+                    </select>
+                </div>
+                <div class="char-search">
+                    <input id="char-search-input" type="text" placeholder="查汉字，例如：福" />
+                    <button id="char-search-btn">查询</button>
+                </div>
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('initials')">声母</button>
+                    <button class="tab-btn" onclick="switchTab('finals')">韵母</button>
+                    <button class="tab-btn" onclick="switchTab('tones')">声调</button>
+                </div>
+                <div id="initials-view">
+                    <h3 id="initials-title">粤语声母</h3>
+                    <div class="initials-grid" id="initials-list">
+                        <!-- Initials will be injected here -->
+                    </div>
+                </div>
+                <div id="finals-view" style="display: none;">
+                    <h3 id="finals-title">粤语韵母</h3>
+                    <div class="initials-grid" id="finals-list">
+                        <!-- Finals will be injected here -->
+                    </div>
+                </div>
+                <div id="tones-view" style="display: none;">
+                    <h3 id="tones-title">粤语声调</h3>
+                    <div class="tone-grid" id="tones-list">
+                        <!-- Tones will be injected here -->
+                    </div>
+                    <p id="tone-note" class="tone-note">阴平、阴上、阴去、阳平、阳上、阳去（对应 1–6 调号）。</p>
+                </div>
+            </nav>
+            <main class="content-area" id="content-display">
+                <div class="welcome-message">
+                    请选择普通话声母以查看其与粤语声母的对应关系。
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="data_sc.js"></script>
+    <script src="app_sc.js"></script>
+</body>
+</html>
